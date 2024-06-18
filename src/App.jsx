@@ -6,8 +6,8 @@ function App() {
     <main>
       <div id="game-container">
         <ol id="players">
-          <Playe name="Player 1" symbol="X"/>
-          <Playe name="Player 2" symbol="O"/>
+          <Playe initialName="Player 1" symbol="X"/>
+          <Playe initialName="Player 2" symbol="O"/>
         </ol>
         GAME BOARD
       </div>
