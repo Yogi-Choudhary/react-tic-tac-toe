@@ -1,4 +1,5 @@
 import Playe from "./components/Playe"
+import GameBoard from "./components/GameBoard"
 function App() {
   
 
@@ -9,7 +10,7 @@ function App() {
           <Playe initialName="Player 1" symbol="X"/>
           <Playe initialName="Player 2" symbol="O"/>
         </ol>
-        GAME BOARD
+        <GameBoard />
       </div>
       LOG
     </main>
