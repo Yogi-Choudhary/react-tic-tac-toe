@@ -2,18 +2,39 @@ import { useState } from "react"
 import Playe from "./components/Playe"
 import GameBoard from "./components/GameBoard"
 import Log from "./components/Log";
+import { WINNING_COMBINATIONS } from "./winning-combination";
+function deriveActivePlayer(gameTurns) {
+  let currentPlayer = 'X'
+  
+  if (gameTurns.length > 0 && gameTurns[0].player === 'X'){
+    currentPlayer = 'O'
+  }
+
+  return currentPlayer;
+}
+
 function App() {
   const [gameTurns, setGameTurns] = useState([]);
-  const [activePlayer, setActivePlayer] = useState('X');
+  // const [activePlayer, setActivePlayer] = useState('X');
   
+  const activePlayer = deriveActivePlayer(gameTurns);
+
+  // let currentPlayer = 'X'
+  // if (gameTurns.length > 0 && gameTurns[0].player === 'X'){
+  //   currentPlayer = 'O'
+  // }
+
   function handleSelectSquare(rowIndex, colIndex){
-    setActivePlayer((curActivePlayer) => curActivePlayer === 'X' ? 'O' : 'X');
+    // setActivePlayer((curActivePlayer) => curActivePlayer === 'X' ? 'O' : 'X');
 
     setGameTurns((prevTruns) => {
-      let currentPlayer = 'X'
-      if (prevTruns.length > 0 && prevTruns[0].player === 'X'){
-        currentPlayer = 'O'
-      }
+
+      const currentPlayer = deriveActivePlayer(prevTruns);
+
+      // let currentPlayer = 'X'
+      // if (prevTruns.length > 0 && prevTruns[0].player === 'X'){
+      //   currentPlayer = 'O'
+      // }
       const updatedTruns = [
         {square: { row: rowIndex, col: colIndex}, player: currentPlayer }, ...prevTruns,
       ];
